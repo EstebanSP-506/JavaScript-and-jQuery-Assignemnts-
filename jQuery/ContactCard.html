@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            $('form').submit(function(){
+                var a = $('form > label > input:first').val();
+                var b = $('form > label > input:last').val();
+                var c = $('form > label > textarea').val();
+                $('#wrapperCards').append('<div data-description='+'"<p>'+c+'</p>"'+'><h1>'+a+' '+b+'</h1><p>click for description</p></div>')
+                return false;
+            });
+            $(document).on('click', '#wrapperCards > div', function(){
+                var temp = $(this).html();
+                var descr = $(this).data('description');
+                $(this).data('description',temp);
+                $(this).html(descr);
+
+            });
+        })
+    </script>
+    <style>
+        body{
+            text-align: center;
+        }
+        body > div{
+            margin: 0px auto;
+            display: inline-block;
+            border: 2px dashed red;
+            padding: 0px;
+            vertical-align: top;
+        }
+        form > label {
+            display: block;
+        }
+        #wrapperForm{
+            width: 45%;
+            height: 500px;
+        }
+        #wrapperCards{
+            width: 45%;
+            height: 500px;
+        }
+        #wrapperCards > div{
+            border: 2px dashed blue;
+            height: 125px;
+            width: 50%;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapperForm">
+        <form>
+            <h1>Add Users Form</h1>
+            <label>
+                First Name:<input type="text" value="">
+            </label>
+            <label>
+                Last Name<input type="text" value="">
+            </label>
+            <label>
+                Description
+                <textarea name="description" value='description'></textarea>
+            </label>
+            <input type="submit" value="Add User">
+        </form>
+    </div>
+    <div id="wrapperCards"></div>
+</body>
+</html>

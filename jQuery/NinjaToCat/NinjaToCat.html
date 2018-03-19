@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('img').click(function(){
+                var a = $(this).data("alt-src");
+                var b = $(this).attr("src");
+                $(this).slideUp(250,function(){
+
+                $(this).attr('src',a);
+                $(this).data('alt-src',b);
+                $(this).slideDown(250);
+
+                });
+            }
+    )
+        })
+    </script>
+    <style>
+    #wrapper{
+        margin: 0% auto;
+        text-align: center;
+        width: 50%;
+        border: 2px dashed green;
+    }
+    img {
+        display: block;
+        margin: 5px auto;
+        width: 50%;
+    }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>Ninja to Cat!</h1>
+        <h2>Try it now!</h2>
+        <img src="img/ninja0.png" alt="ninja0" data-alt-src="img/cat0.png" data-alt-alt="cat0">
+        <img src="img/ninja1.png" alt="ninja1" data-alt-src="img/cat1.png" data-alt-alt="cat1">
+        <img src="img/ninja2.png" alt="ninja2" data-alt-src="img/cat2.png" data-alt-alt="cat2">
+        <img src="img/ninja3.png" alt="ninja3" data-alt-src="img/cat3.png" data-alt-alt="cat3">
+        <img src="img/ninja4.png" alt="ninja4" data-alt-src="img/cat4.png" data-alt-alt="cat4">
+    </div>    
+</body>
+</html>
